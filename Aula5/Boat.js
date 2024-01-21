@@ -1,10 +1,10 @@
 import Vehicle from "./Vehicle.js";
 
-export default class Car extends Vehicle {
+export default class Boat extends Vehicle {
 
-
-    constructor(data) {
+    constructor(data){
         super(data);
         console.log(this.brand, this.speed)
     }
+
 }

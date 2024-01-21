@@ -1,5 +1,6 @@
 import Car from "./car.js";
 import Motorcycle from "./Motorcycle.js";
+import Boat from "./Boat.js";
 
 const data = {
     Cars:[{
@@ -11,7 +12,7 @@ const data = {
         brand: "Fiat",
         speed: 50,
     },
-],
+    ],
     Motorcycle:[{
         brand:  "Ducatti",
         speed: 300,
@@ -21,9 +22,9 @@ const data = {
         brand: "Kawasaki",
         speed: 500,
     },
-],
+    ],
 
-    Boats:[{
+    Boat:[{ //O nome é importante está igual o da função. 
         brand: "Cabin Cruisers",
         speed: 150,
 
@@ -31,7 +32,8 @@ const data = {
     {
         brand: "Dinghy",
         speed: 300,
-    },],
+    },
+    ],
 };
 
 
@@ -48,13 +50,13 @@ window.onload = () => {
 
 
 
-    const creatUL = (name, data) => { //Criando uma [lista Unsorted List (UL)] para termos a lista de brand de Car, Motocycle, bike, boat... 
+    const creatUL = (name, data) => { //Criando uma [lista "Unsorted List" (UL)] para termos a lista de brand de Car, Motocycle, bike, boat... 
         const ul = document.createElement("ul");
         const title = document.createElement("li");
-        title.innerText = name;
-        ul.appendChild(title);
+        title.innerText = name; //InnerText pega apenas a parte importante do texto. Respeitando as quebras de linhas e mantendo a formatação
+        ul.appendChild(title); //Basicamente reconhece o nome da classe (Car, Motocycle, Boat) e cria uma nova lista com o titulo 
 
-        data.forEach((element, index) => { //Populando cada lista com seus elementos. Basicamente cada 
+        data.forEach((element) => { //Populando cada lista com seus elementos. Basicamente cada lista receberá os seus devidos conteudos de forma dinamica
             const li = document.createElement("li");
             const button = document.createElement("button");
             button.onclick = (event) => {
@@ -65,18 +67,16 @@ window.onload = () => {
                     case "Motorcycle":
                         vehicles.push(new Motorcycle(element));
                         break;
-                    case "Boat":  //ANCHOR - Criar uma função boat
+                    case "Boat": 
+                        vehicles.push(new Boat(element)); 
                         break;
 
                         default:
                             break
-
-
                 }
                 console.log(vehicles);
-      
-
             }
+
             button.innerText = element.brand;
             li.appendChild(button);
             ul.appendChild(li);

@@ -17,10 +17,10 @@
 let user = {
 
     id: 0,
-    name: 'João',
+    name: 'Leandro',
     age: 31,
     gender: 'male',
-    dob: '01-01-1990',
+    dob: '20-07-1999',
     hobbies: ['Loitering', 'Arson', 'Grand Theft Auto', 'Gerrymandering']
 }
 
