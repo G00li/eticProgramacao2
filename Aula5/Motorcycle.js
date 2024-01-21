@@ -4,8 +4,8 @@ export default class Motorcycle extends Vehicle {
 
     constructor(data){
         super(data);
-        console.log(this.brand, this.speed)
 
+        console.log(this.brand, this.speed);
     }
 
 }

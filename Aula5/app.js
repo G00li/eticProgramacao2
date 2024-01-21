@@ -1,6 +1,6 @@
 import Car from "./car.js";
-import Motorcycle from "./Motocycle.js";
 import Boat from "./Boat.js";
+import Motorcycle from "./motorcycle.js";
 
 const data = {
     Cars:[{
@@ -35,7 +35,6 @@ const data = {
     },
     ],
 };
-
 
 const vehicles = []
 
