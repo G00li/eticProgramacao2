@@ -1,5 +1,5 @@
 import Car from "./car.js";
-import Motorcycle from "./Motorcycle.js";
+import Motorcycle from "./Motocycle.js";
 import Boat from "./Boat.js";
 
 const data = {
