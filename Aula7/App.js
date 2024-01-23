@@ -2,6 +2,8 @@ import Car from "./car.js";
 import Boat from "./Boat.js";
 import Motorcycle from "./motorcycle.js";
 
+let currentVehicle;
+
 // const data = {
 //     Cars:[{
 //         brand: "Ferrari",
@@ -114,6 +116,10 @@ import Motorcycle from "./motorcycle.js";
 //
 
 // Função Generica 
+
+
+
+
 const loadData = async (url) => { //Função assincrona - So apresenta para o usuário depois de ter carregado tudo 
     
     const request = await fetch(url); //fetch vai fazer com que carreguemos ficheiros fora do programa. neste caso é um ficheiro interno 
@@ -130,22 +136,30 @@ const createLiContent = (item) => {
     button.innerText = item.brand;
 
     button.onclick = () => {
+        if(playButton.className === "inactive"){
+            playButton.className = "";
+        }
+        
+        if(currentVehicle){ //verifica se existe um veiculo dentro da variavel currentVehicle. se existir ele exclui e exibe o novo após apertar o botao
+
+            currentVehicle.destroy();
+        }
+        
         switch (item.type){
             case "Car": 
-                new Car (item);
+                currentVehicle = new Car (item);
                 break;
             
             case "Motorcycle": 
-                new Motorcycle(item); 
+            currentVehicle = new Motorcycle(item); 
                 break;
 
             case "Boat":
-                new Boat(item);
+                currentVehicle = new Boat(item);
             break;
         }
-    }
 
-    // console.log(item); 
+    }
     
     return button;
 
@@ -166,15 +180,97 @@ const creatList = (data) => {
 
 }
 
-window.onload = async () => { //Função assincrona 
 
-    const data = await loadData ("data.json"); //Se nao por AWAIT ele carrega e fica como "pending (promise)" 
-    
-    data.sort((a,b) => a.type.localeCompare(b.type)); // Função para ordenar um array de forma alfabética. Onde o "a" é o item original e o "b" é o item a seguir 
- 
-    const ul = creatList(data);
+// ------------------------- PLAY/PAUSE BUTTON ----------------------
+
+// ______________________________________________________________________________________
+
+// let isPlaying = null; //variavel para fazer o play/pause button 
+// let playButton;
+
+//  !!!!!!!!!!!!!!!!! MODO ANTIGO CONTROLANDO A VELOCIDADE DA ANIMAÇÃO !!!!!!!!!!!!!!!!! 
+// Consegue definir em quantos milissegundos quer um frame
+
+
+// const play = () => {
+//     isPlaying = setInterval(() => { //Consegue controlar a velocidade da animação
+
+//         console.log("new animation frame");
+//     }, 1000);
+//     playButton.innerText="Stop"; //Trocando o texto do botão para stop 
+//     playButton.className = "red";
+
+// }
+// const stop = () => {
+//     clearInterval(isPlaying);
+//     isPlaying = null; 
+//     playButton.innerText="Play";
+//     playButton.className = "green";
+// }
+
+// ______________________________________________________________________________________ 
+
+// !!!!!!!!!!!!!!!!!! MODO MAIS ATUAL DE FAZER ANIMAÇÃO !!!!!!!!!!!!!!!!!!!! 
+// Mantem sempre 60 fps (frames por segundos)
+
+let isPlaying = null; //variavel para fazer o play/pause button 
+let playButton;
+
+const animate = () => { 
+
+    currentVehicle.animate();
+    isPlaying = requestAnimationFrame(animate);
+}
+
+const playAnimation = () =>{
+
+    isPlaying = requestAnimationFrame(animate);
+    playButton.innerText = "Stop";
+    playButton.className = "red";
 
 }
+
+const stopAnimation = () => {
+
+    cancelAnimationFrame(isPlaying);
+    isPlaying = null; 
+    playButton.innerText = "Play";
+    playButton.className = "green";
+
+
+}
+
+
+// ---------------------------------- WINDOW ---------------------------------
+
+// window.onload = async () => { //Função assincrona 
+
+//     const data = await loadData ("data.json"); //Se nao por AWAIT ele carrega e fica como "pending (promise)" 
+    
+//     data.sort((a,b) => a.type.localeCompare(b.type)); // Função para ordenar um array de forma alfabética. Onde o "a" é o item original e o "b" é o item a seguir 
+ 
+//     const ul = creatList(data);
+// }
+
+// ======================= OUTRA MANEIRA DE FAZER O WINDOW.ONLOAD (da no mesmo) ==============================
+
+window.addEventListener("load",async () => { //Adicionando o window.onload de outra forma (EVENTO)
+    
+    const data = await loadData ("data.json");     
+    data.sort((a,b) => a.type.localeCompare(b.type)); 
+
+    const ul = creatList(data);
+
+
+    playButton = document.querySelector("#play_pause");
+    playButton.onclick = () =>{
+       isPlaying ? stopAnimation() : playAnimation();
+    }
+})
+
+
+
+
 
 //  =============== IMPORTANTE  ===============
 
