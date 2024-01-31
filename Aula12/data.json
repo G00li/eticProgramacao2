@@ -1,0 +1,58 @@
+[
+    {
+        "type": "bird", 
+        "name": "seagull", 
+        "canFly": true,
+        "sound": "https://cdn.pixabay.com/audio/2022/01/18/audio_903927fe59.mp3",
+        "image": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F96d78a54-ef33-11e8-8888-d940336e3709.jpg?crop=2416%2C1611%2C124%2C83"
+    },
+    {
+        "type": "bird", 
+        "name": "canary", 
+        "canFly": true,
+        "sound": "https://cdn.pixabay.com/audio/2022/03/15/audio_58ef82f780.mp3",
+        "image": "https://www.zooplus.co.uk/magazine/wp-content/uploads/2017/12/fotolia_127952455.jpg"
+    },
+    {
+        "type": "bird", 
+        "name": "chicken", 
+        "canFly": false,
+        "sound": "https://cdn.pixabay.com/audio/2023/12/06/audio_41325eb66f.mp3",
+        "image": "https://www.shutterstock.com/image-photo/isolated-image-brown-chicken-260nw-537937003.jpg"
+    },
+    {
+        "type": "bird", 
+        "name": "parrot", 
+        "canFly": true,
+        "sound": "https://cdn.pixabay.com/audio/2022/03/09/audio_6df29308b9.mp3",
+        "image": "https://www.boredpanda.com/blog/wp-content/uploads/2022/08/62f34e4971a38_cute-funny-parrots.jpg"
+    },
+    {
+        "type": "mammal", 
+        "name": "horse", 
+        "numLegs": 4,
+        "sound": "https://cdn.pixabay.com/audio/2022/10/23/audio_b3ca30d553.mp3",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0r-KTBd3Ij4QZUuyGM_nBYuTWiPojvQzvTg&usqp=CAU"
+    },
+    {
+        "type": "mammal", 
+        "name": "dog", 
+        "numLegs": 4,
+        "sound": "https://cdn.pixabay.com/audio/2021/08/04/audio_b5c2fe44f0.mp3",
+        "image": "https://i.pinimg.com/736x/98/35/db/9835db3c92ef4ed52315995b2a60988b.jpg"
+    },
+    {
+        "type": "reptile", 
+        "name": "crocodile", 
+        "isAgressive": true,
+        "sound": "https://cdn.pixabay.com/audio/2022/03/10/audio_7547b2d1bd.mp3",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJYd4nuRP1dsibucCLE1rn5ozrGpPrpj_Ue8MCxrpoww&s"
+    },
+    {
+        "type": "reptile", 
+        "name": "gecko", 
+        "isAgressive": false,
+        "sound": "https://cdn.pixabay.com/audio/2022/03/09/audio_5ad387e959.mp3",
+        "image": "https://media.istockphoto.com/id/1389500800/photo/the-crested-gecko-%D1%81ute-isolated-on-black-background.jpg?s=612x612&w=0&k=20&c=OUICQ5aJwqXsLKpZcxhnAQyM1uojyZBsOYgzIa0p58Y="
+    }
+]
