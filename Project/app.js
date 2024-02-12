@@ -1,3 +1,4 @@
+import ArtPiece from "./ArtPiece.js";
 import Gallery from "./Gallery.js";
 
 
@@ -12,7 +13,7 @@ window.onload = async () => {
     const location = document.querySelector("#location")
     const button = document.querySelector("#moreInfo")
 
-    const gallery = await new Gallery( (data) => {
+    const gallery = new Gallery( (data) => {
 
         console.log (data);
         artName.innerText = data.title;

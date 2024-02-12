@@ -35,15 +35,31 @@ export default class Gallery{
             this.paintingArt();
         }
 
+        const moreInfoButton = document.querySelector("#moreInfo");
+        
+        moreInfoButton.addEventListener('click', () => {
+            const currentArt = this.artPieces[this.currentArtIndex];
+            const detail = currentArt.data.detail;
 
+            console.log(detail);
+
+
+            const detail1 = document.querySelector("#detail1");
+            detail1.innerText = detail;
+        });
     }
+
+
     
     paintingArt (){
         this.view.innerHTML = "";
-        this.view.appendChild(this.artPieces[this.currentArtIndex].view)
-        this.callback(this.artPieces[this.currentArtIndex].data)
+        this.view.appendChild(this.artPieces[this.currentArtIndex].view);
+        this.callback(this.artPieces[this.currentArtIndex].data);
+    
+        const currentArt = this.artPieces[this.currentArtIndex];
+        const detail1 = document.querySelector("#detail1");
+        detail1.innerText = currentArt.data.detail;
     }
-
 
 
     addItem(item){

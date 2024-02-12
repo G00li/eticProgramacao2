@@ -34,11 +34,6 @@ export default class ArtPiece{
         return this.#description; 
     }
 
-    infoDetails (){
-        this.#text1 = document.querySelector("#detail1"); 
-        this.#text1.innerText = data.detail;
-        return this.#text1; 
-    }
 
     get name(){
         return this.#title; 
