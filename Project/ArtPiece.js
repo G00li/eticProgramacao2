@@ -11,7 +11,7 @@ export default class ArtPiece{
     constructor (data) {
 
         this.#data = data; 
-        
+
         this.#type = data.type;
         this.#title = data.title; 
         this.#description = data.history; 
@@ -21,7 +21,7 @@ export default class ArtPiece{
         //  Corpo da imagem 
         this.#artImage = document.createElement("img");
         this.#artImage.src = data.image;
-        this.#artImage.className = "art"
+        this.#artImage.className = "art";
 
         // Corpo da descrição (history)
         this.#description = document.querySelector("p"); 

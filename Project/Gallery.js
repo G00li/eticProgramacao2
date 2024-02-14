@@ -18,6 +18,9 @@ export default class Gallery{
 
         this.view = document.querySelector("#image-container");
         console.log(this.view); //Bonus
+      
+        
+      
         document.querySelector("#button1").onclick = () => {
             this.currentArtIndex--;
             if(this.currentArtIndex < 0){
