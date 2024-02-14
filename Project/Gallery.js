@@ -40,16 +40,22 @@ export default class Gallery{
 
         const moreInfoButton = document.querySelector("#moreInfo");
         
-        moreInfoButton.addEventListener('click', () => {
-            const currentArt = this.artPieces[this.currentArtIndex];
-            const detail = currentArt.data.detail;
+        // moreInfoButton.addEventListener('click', () => {
+        //     const currentArt = this.artPieces[this.currentArtIndex];
+        //     const detail = currentArt.data.detail;
 
-            console.log(detail);
+        //     console.log(detail);
 
 
-            const detail1 = document.querySelector("#detail1");
-            detail1.innerText = detail;
-        });
+        //     const detail1 = document.querySelector("#detail1");
+        //     detail1.innerText = detail;
+        // });
+
+
+    }
+
+    get currentItem(){
+        return this.artPieces[this.currentArtIndex]; 
     }
 
 
